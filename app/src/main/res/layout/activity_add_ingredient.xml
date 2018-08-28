@@ -19,14 +19,15 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <TextView
 
+    <ListView
+        android:id="@+id/add_ingredient_listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/add_ingredient_textView"
         app:layout_anchor="@id/toolbar"
         app:layout_anchorGravity="bottom"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        android:layout_marginTop="?android:attr/actionBarSize"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

@@ -11,11 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -28,6 +29,7 @@ public class AddIngredientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredient);
 
+        showIngredients();
         FloatingActionButton fab = findViewById(R.id.fab);
         //The fab opens a popup to input the new ingredient
         fab.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +38,6 @@ public class AddIngredientActivity extends AppCompatActivity {
                 inflatePopup(view);
             }
         });
-        showIngredients();
 
     }
 
@@ -47,15 +48,18 @@ public class AddIngredientActivity extends AppCompatActivity {
         Set<String> tempSet = sp.getStringSet("INGREDIENTS", null);
 
         if (tempSet != null) {
+            List<String> ingredientList = new ArrayList<>(tempSet);
             ingredientSet = new TreeSet<>(tempSet);
 
-            StringBuilder sb = new StringBuilder();
-            for (String s : ingredientSet) {
-                sb.append(s.trim());
-                sb.append("\n");
-            }
-            TextView tv = findViewById(R.id.add_ingredient_textView);
-            tv.setText(sb.toString());
+            IngredientAdapter adapter = new IngredientAdapter(this, ingredientList);
+            ListView ingredientLv = findViewById(R.id.add_ingredient_listView);
+            ingredientLv.setAdapter(adapter);
+//            StringBuilder sb = new StringBuilder();
+//            for (String s : ingredientSet) {
+//                sb.append(s.trim());
+//                sb.append("\n");
+//            }
+
         }
     }
 

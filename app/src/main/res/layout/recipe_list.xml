@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    tools:context=".RecipeListActivity">
 
-    <ImageView
-        android:id="@+id/recipe_imageView"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        />
+    <ListView
+        android:id="@+id/recipeLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/recipe_title_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:gravity="center_vertical"
-        android:padding="8dp"
-        android:maxLines="4"
-        android:layout_toRightOf="@id/recipe_imageView"
-        android:layout_toEndOf="@id/recipe_imageView"
-        />
-
-
-
-
-</RelativeLayout>
+</LinearLayout>

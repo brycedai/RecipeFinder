@@ -26,13 +26,13 @@ public class RecipeListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_recipe);
+        setContentView(R.layout.recipe_list);
         String ingredients = createIngredientString();
         if (ingredients != null) {
             //Makes an API call to find the recipes using the inputted ingredients
             Ion.with(this)
                     .load("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false" +
-                            "&ingredients=" + ingredients + "&limitLicense=false&number=5&ranking=2")
+                            "&ingredients=" + ingredients + "&limitLicense=false&number=20&ranking=2")
                     .setHeader("X-Mashape-Key", BuildConfig.ApiKey)
                     .setHeader("Accept", "application/json")
                     .asJsonArray()

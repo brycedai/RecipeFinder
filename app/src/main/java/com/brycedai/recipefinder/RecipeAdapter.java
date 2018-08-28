@@ -1,7 +1,6 @@
 package com.brycedai.recipefinder;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +28,7 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
     public View getView(int pos, View convertView, ViewGroup parent) {
         View listItem = convertView;
         if (listItem == null) {
-            listItem = LayoutInflater.from(context).inflate(R.layout.recipe_list, parent, false);
+            listItem = LayoutInflater.from(context).inflate(R.layout.content_recipe, parent, false);
         }
         Recipe currRecipe = recipeList.get(pos);
 
